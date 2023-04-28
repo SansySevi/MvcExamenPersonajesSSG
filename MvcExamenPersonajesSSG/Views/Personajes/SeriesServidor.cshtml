@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MvcExamenPersonajesSSG.Models.Serie>
+
+@{
+    ViewData["Title"] = "SeriesServidor";
+}
+
+<h1>SeriesServidor</h1>
+
+<div style="display:flex;flex-wrap: wrap;justify-content: space-evenly;">
+    @foreach (var item in Model)
+    {
+
+        <div class="card" style="width: 18rem; margin-bottom: 34px;">
+            <img src="@item.Imagen" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@item.Nombre</h5>
+                <p class="card-text">Estreno: @item.Anio || IMDB: @item.Puntuacion</p>
+
+                <a asp-controller="Personajes" asp-action="PersonajesSerieServidor" asp-route-idserie="@item.IdSerie" class="btn btn-success">Personajes</a>
+            </div>
+        </div>
+    }
+</div>
